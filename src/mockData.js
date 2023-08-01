@@ -1,4 +1,4 @@
-const parkData5 = {
+const mockData = {
   "total": "471",
   "limit": "5",
   "start": "0",
@@ -1796,4 +1796,6 @@ const parkData5 = {
     "start": "0"
   }
 ]
-}
+};
+
+export default mockData;

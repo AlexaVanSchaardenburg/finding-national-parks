@@ -5,12 +5,14 @@ import Card from "../Card/Card";
 
 const Home = ({ data }) => {
 
+  console.log(data.data)
+
   return (
     <>
       <Nav />
       <Form />
       <div className='cards'>
-        {data.map(park => {
+        {data.data.map(park => {
           return <Card park={park}/>
         })}
       </div>
