@@ -1,6 +1,8 @@
 import './Cards.css';
 
-const Cards = () => {
+const Cards = ({ data }) => {
+
+
 
   return (
     <>

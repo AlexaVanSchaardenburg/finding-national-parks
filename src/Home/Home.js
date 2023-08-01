@@ -3,13 +3,13 @@ import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
 import Cards from "../Cards/Cards";
 
-const Home = () => {
+const Home = ({ data }) => {
 
   return (
     <>
       <Nav />
       <Form />
-      <Cards />
+      <Cards data={data}/>
     </>
   );
 }
