@@ -30,4 +30,5 @@ h1 {
   font-size: 1em;
   font-family: 'League Spartan', sans-serif;
   color: #465333;
+  cursor: pointer;
 }
