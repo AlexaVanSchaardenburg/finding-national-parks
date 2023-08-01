@@ -2,8 +2,6 @@ import './Card.css';
 
 const Card = ({ park }) => {
 
-  console.log(park["activities"][0]["name"])
-
   return (
     <div className='card'>
       <div className='img-box'>
@@ -11,7 +9,7 @@ const Card = ({ park }) => {
       </div>
       <div className='name-and-activities'>
         <h2>{park.fullName}</h2>
-        <p className='activities'>{`${park["activities"][0]["name"]} | ${park["activities"][1]["name"]} | ${park["activities"][2]["name"]} | see more...`}</p>
+        <p className='activities'>{`${park["activities"][0]["name"]} | ${park["activities"][1]["name"]} | see more...`}</p>
       </div>
     </div>
   );
