@@ -1,10 +1,12 @@
 import './App.css';
+import Nav from "../Nav/Nav";
 
 const App = () => {
 
   return (
     <>
       <h1>App</h1>  
+      <Nav />
     </>
   );
 }
