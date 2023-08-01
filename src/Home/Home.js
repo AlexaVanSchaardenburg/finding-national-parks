@@ -1,7 +1,7 @@
 import './Home.css';
 import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
-import Cards from "../Cards/Cards";
+import Card from "../Card/Card";
 
 const Home = ({ data }) => {
 
@@ -9,7 +9,11 @@ const Home = ({ data }) => {
     <>
       <Nav />
       <Form />
-      <Cards data={data}/>
+      <div className='cards'>
+        {data.map(park => {
+          return <Card park={park}/>
+        })}
+      </div>
     </>
   );
 }
