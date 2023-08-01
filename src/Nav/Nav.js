@@ -1,11 +1,11 @@
 import './Nav.css';
-import 
+import logo from '../materials/logo_header.png'
 
 const Nav = () => {
 
   return (
     <>
-      <img src={'./materials/logo_header.png'} alt='ParkSeeker logo - green mountians set next to the word ParkSeeker'/>  
+      <img src={logo} alt='ParkSeeker logo - green mountians set next to the word ParkSeeker'/>  
     </>
   );
 }
