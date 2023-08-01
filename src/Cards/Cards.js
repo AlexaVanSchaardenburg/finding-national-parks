@@ -1,12 +1,15 @@
 import './Cards.css';
+import Card from '../Card/Card'
 
 const Cards = ({ data }) => {
 
-
+// console.log(data)
 
   return (
     <>
-      <h1>Cards</h1>  
+      {data.map(park => {
+        return <Card park={park}/>
+      })}
     </>
   );
 }
