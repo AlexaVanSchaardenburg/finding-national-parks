@@ -3,10 +3,11 @@ import './Form.css';
 const Form = () => {
 
   return (
-    <>
+    <div className='form'>
+      <div className='form-box'>
       <h1>find the perfect park for your next adventure</h1>
-      <select>
-        <option value="select">select an activity - find a park!</option>
+      <select className='dropdown'>
+        <option value="select">select an activity</option>
         <option value="arts-and-culture">arts and culture</option>
         <option value="astronomy">astronomy</option>
         <option value="stargazing">stargazing</option>
@@ -30,7 +31,8 @@ const Form = () => {
         <option value="shopping">shopping</option>
         <option value="bookstore-and-park-store">bookstore and park store</option>
       </select>
-    </>
+      </div>
+    </div>
   );
 }
 
