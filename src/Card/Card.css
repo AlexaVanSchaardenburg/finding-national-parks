@@ -1,0 +1,24 @@
+.card{
+  width: 40%;
+  background: #7CA0B0;
+  /* height: 20em; */
+  border: blue solid 2px;
+  height: 300px;
+}
+
+.img-box{
+  height: 75%;
+  object-fit: cover;
+}
+
+.img{
+  width: 100%;
+}
+
+.name-and-activities{
+  /* margin: 1em; */
+  padding-left: 1em;
+  border: #7CA0B0 2px solid;
+  font-family: 'League Spartan', sans-serif;
+  color: #FAF4ED;
+}

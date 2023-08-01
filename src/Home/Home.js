@@ -5,8 +5,6 @@ import Card from "../Card/Card";
 
 const Home = ({ data }) => {
 
-  console.log(data.data)
-
   return (
     <>
       <Nav />

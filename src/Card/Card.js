@@ -1,11 +1,19 @@
 import './Card.css';
 
-const Card = () => {
+const Card = ({ park }) => {
 
   return (
-    <>
-      <h1>Card</h1>  
-    </>
+    <div className='card'>
+      <div className='img-box'>
+        {park.images 
+        ? <img src={park["images"][0]["url"]} className='img' alt='park image'/>
+        : <p>no image</p>}
+      </div>
+      <div className='name-and-activities'>
+        <h2>{park.fullName}</h2>
+        <p className='activities'>activites go here</p>
+      </div>
+    </div>
   );
 }
 
