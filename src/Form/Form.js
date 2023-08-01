@@ -15,7 +15,7 @@ const Form = () => {
         <option value="camping">camping</option>
         <option value="backcountry-camping">backcountry camping</option>
         <option value="car-or-front-country-camping">car or front country camping</option>
-        <option value="horse-camping-(see-also-horse/stock-use)">horse camping (see also horse/stock use)</option>
+        <option value="horse-camping">horse camping</option>
         <option value="canyoneering">canyoneering</option>
         <option value="climbing">climbing</option>
         <option value="rock-climbing">rock climbing</option>
