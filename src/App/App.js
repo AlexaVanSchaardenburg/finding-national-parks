@@ -1,11 +1,13 @@
 import './App.css';
 import Nav from "../Nav/Nav";
+import Form from "../Form/Form";
 
 const App = () => {
 
   return (
     <>
       <Nav />
+      <Form />
     </>
   );
 }
