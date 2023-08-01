@@ -1,6 +1,7 @@
 import './App.css';
-import Nav from "../Nav/Nav";
-import Form from "../Form/Form";
+import { Routes, Route } from "react-router-dom"
+import Home from "../Home/Home";
+import Details from "../Details/Details";
 
 const App = () => {
 
@@ -14,10 +15,10 @@ const App = () => {
   //need a state to store what the activity selected in the form - this state change will automatically trigger a function to filter through all the parks and pass those filtered parks to the the card component to display
 
   return (
-    <>
-      <Nav />
-      <Form />
-    </>
+    <Routes >
+      <Route path='/' element={<Home />}/>
+      <Route path='/:park-id' element={<Details />}/>
+    </Routes>
   );
 }
 
