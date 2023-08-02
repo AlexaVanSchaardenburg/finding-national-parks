@@ -1,0 +1,10 @@
+.nav{
+  background: #FAF4ED;
+  display: flex;
+  justify-content: center;
+
+}
+
+.header-img{
+  width: 25%;
+}
