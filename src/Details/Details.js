@@ -17,24 +17,23 @@ const Details = ({ data }) => {
           <p className='park-summary'>{`${data.description}`}</p>
         </div>
       </div>
-      <div className='details'>
         <h2 className='details-header'>at a glance</h2>
           <div className='at-a-glance'>
-            <div className='info-box'>
+            <div className='info-box' id='activities'>
               <h3>activities</h3>
               {data.activities.map(activity => {
                 return (
-                  <p>{`${activity.name}`}</p>
+                  <p className='listed-activity'>{`${activity.name}`}</p>
                 )
               })}
             </div>
-            <div className='other-at-a-glance'>
+            <div className='location-designation-link'>
               <a href={data["url"]}>click here to go to park site!</a>
               <div className='info-box'>
                 <h3>designation</h3>
                 <p>{`${data.designation}`}</p>
               </div>
-              <div className='info-box'>
+              <div className='info-box' id='location'>
                 <h3>location</h3>
                 <p>{`${data.directionsInfo}`}</p>
               </div>
@@ -43,11 +42,10 @@ const Details = ({ data }) => {
         <h2 className='details-header'>park images</h2>
           {data["images"].map(image => {
             return (
-              <img src={image.url} alt={image.title}/>
+              <img src={image.url} alt={image.title} className='park-images'/>
             )
           })}
       </div> 
-    </div>
   );
 }
 
