@@ -1,7 +1,7 @@
 .card{
   width: 40%;
   background: #7CA0B0;
-  height: 410px;
+  height: 33em;
   margin: 1em;
 
 }
@@ -23,4 +23,8 @@
   font-family: 'League Spartan', sans-serif;
   color: #FAF4ED;
   height: 30%;
+}
+
+h2{
+  font-size: 2em
 }

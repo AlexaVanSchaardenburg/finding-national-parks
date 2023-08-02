@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <Routes >
-      <Route path='/' element={<Home data={mockData} />}/>
+      <Route path='/' element={<Home data={mockData}/>}/>
       <Route path='/:park-id' element={<Details />}/>
     </Routes>
   );
