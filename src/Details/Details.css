@@ -1,0 +1,92 @@
+.details{
+  background:#FAF4ED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.park-summary-box{
+  background: rgba(250, 244, 237, 0.6)
+}
+
+.background-img{
+  border: 0.00001px solid #FAF4ED;
+}
+
+.park-summary-box{
+  padding: 1em;
+  margin: 3em 0;
+}
+
+.park-summary{
+  text-align: left;
+  padding: 0;
+  color: #465333;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.details-header{
+  background: #7CA0B0;
+  color: #FAF4ED;
+  padding: 0.5em;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.info-box,
+a{
+  background: rgba(150, 114, 86, 0.5);
+  border-radius: 1.5em;
+  color: #FAF4ED;
+  font-family: 'League Spartan', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+#activities{
+  width: 45%;
+}
+
+#location{
+  padding: 1em;
+}
+
+.listed-activity{
+  margin: 0.1em;
+}
+
+a{
+  background: #465333;
+  text-decoration: none;
+  font-size: 1.7em;
+  padding: 1em;
+}
+
+.park-images{
+  width: 50%;
+  margin: 1em;
+}
+
+.at-a-glance{
+  display: flex;
+  justify-content: space-around;
+}
+
+.location-designation-link{
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+h3{
+  font-size: 2.3em;
+  margin: 0.6em
+}
+
+p{
+  font-size: 1.7em
+}
