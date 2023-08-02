@@ -1,9 +1,13 @@
+.details{
+  background:#FAF4ED;
+}
+
 .park-summary-box{
   background: rgba(250, 244, 237, 0.6)
 }
 
 .background-img{
-  border: 0.001px solid #FAF4ED;
+  border: 0.00001px solid #FAF4ED;
 }
 
 .park-summary-box{
@@ -18,6 +22,30 @@
   font-family: 'League Spartan', sans-serif;
 }
 
-p{
-  font-size: 1.7em;
+.details-header{
+  background: #7CA0B0;
+  color: #FAF4ED;
+  padding: 0.5em;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.info-box{
+  background: rgba(150, 114, 86, 0.5);
+  margin: 1em;
+  border-radius: 1.5em;
+  color: #FAF4ED;
+  padding: 1em;
+  font-family: 'League Spartan', sans-serif;
+}
+
+a{
+  background: #465333;
+  margin: 1em;
+  border-radius: 1.5em;
+  color: #FAF4ED;
+  text-decoration: none;
+  padding: 1em;
+  font-family: 'League Spartan', sans-serif;
 }

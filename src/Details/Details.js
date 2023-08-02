@@ -3,7 +3,7 @@ import './Details.css';
 const Details = ({ data }) => {
 
   return (
-    <>
+    <div className='details'>
       <div 
         className='background-img' 
         style={{
@@ -47,7 +47,7 @@ const Details = ({ data }) => {
             )
           })}
       </div> 
-    </>
+    </div>
   );
 }
 
