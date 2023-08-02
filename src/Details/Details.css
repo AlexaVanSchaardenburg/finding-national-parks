@@ -1,3 +1,23 @@
 .park-summary-box{
-  background: rgba(250, 244, 237, 0.5)
+  background: rgba(250, 244, 237, 0.6)
+}
+
+.background-img{
+  border: 0.001px solid #FAF4ED;
+}
+
+.park-summary-box{
+  padding: 1em;
+  margin: 3em 0;
+}
+
+.park-summary{
+  text-align: left;
+  padding: 0;
+  color: #465333;
+  font-family: 'League Spartan', sans-serif;
+}
+
+p{
+  font-size: 1.7em;
 }

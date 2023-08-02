@@ -5,16 +5,16 @@ const Details = ({ data }) => {
   return (
     <>
       <div 
-        className='img' 
+        className='background-img' 
         style={{
-          backgroundImage: `url(${data["images"][0]["url"]})`,
+          backgroundImage: `url(${data.images[0].url})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover'
         }} >
         <div className="park-summary-box">
-          <h1>Name Here</h1>
-          <p>States</p>
-          <p>Summary</p>
+          <h1 className='park-summary'>{`${data.fullName}`}</h1>
+          <p className='park-summary'>{`${data.states}`}</p>
+          <p className='park-summary'>{`${data.description}`}</p>
         </div>
       </div>
       <div className='details'>
@@ -22,26 +22,23 @@ const Details = ({ data }) => {
           <div className='at-a-glance'>
             <div className='info-box'>
               <h3>activities</h3>
-              <p>all activites go here</p>
+              {data.activities.map(activity => {
+                return (
+                  <p>{`${activity.name}`}</p>
+                )
+              })}
             </div>
             <div className='other-at-a-glance'>
               <a href={data["url"]}>click here to go to park site!</a>
               <div className='info-box'>
                 <h3>designation</h3>
-                <p>park designation here</p>
+                <p>{`${data.designation}`}</p>
               </div>
               <div className='info-box'>
                 <h3>location</h3>
-                <p>park location here</p>
+                <p>{`${data.directionsInfo}`}</p>
               </div>
             </div>
-          </div>
-        <h2 className='details-header'>more info</h2>
-          <div className='info-box'>
-            <h3>weather overview</h3>
-            <p>park weather overview here</p>
-            <h3>getting in</h3>
-            <p>park etrance fees here</p>
           </div>
         <h2 className='details-header'>park images</h2>
           {data["images"].map(image => {
