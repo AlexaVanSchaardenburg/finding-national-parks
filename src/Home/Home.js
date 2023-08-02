@@ -10,7 +10,6 @@ const Home = ({ data }) => {
   return (
     <>
       <Nav />
-      <Details data={ data.data[1] }/>
       <Form />
       <div className='cards'>
         {data.data.map(park => {
