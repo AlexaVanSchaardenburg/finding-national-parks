@@ -12,14 +12,15 @@
   align-items: center;
   margin: 3em;
   padding: 3em;
-  border-radius: 1em
+  border-radius: 1em;
 }
 
 h1 {
   font-family: 'League Spartan', sans-serif;
   color: #465333;
   text-align: center;
-  /* margin: 1.5em; */
+  font-size: 3em;
+  padding-bottom: 1em;
 }
 
 .dropdown{
@@ -27,7 +28,7 @@ h1 {
   background: rgba(250, 244, 237, 0.8);
   border-radius: 1em;
   padding:0.3em;
-  font-size: 1em;
+  font-size: 2em;
   font-family: 'League Spartan', sans-serif;
   color: #465333;
   cursor: pointer;
