@@ -1,4 +1,5 @@
 import './Details.css';
+import { NavLink } from 'react-router-dom'
 
 const Details = ({ data }) => {
 
@@ -12,7 +13,10 @@ const Details = ({ data }) => {
           backgroundSize: 'cover'
         }} >
         <div className="park-summary-box">
+          <div className='title-home'>
           <h1 className='park-summary'>{`${data.fullName}`}</h1>
+          <NavLink className='home-button' to='/'>view other parks</NavLink>
+          </div>
           <p className='park-summary'>{`${data.states}`}</p>
           <p className='park-summary'>{`${data.description}`}</p>
         </div>
