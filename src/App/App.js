@@ -18,11 +18,11 @@ const App = () => {
       .then((res) => {
         setAllParks(res)
       })
-      // .then(() => console.log(allParks))
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setAllParks(null); 
-      });
+      .then(() => console.log(allParks))
+      // .catch((error) => {
+      //   console.error('Error fetching data:', error);
+      //   setAllParks(null); 
+      // });
   }, [])
 
   //pass all the parks to the cards - where it will map over and use the card component to display them
@@ -31,6 +31,7 @@ const App = () => {
   //when a park is clicked we need to get the id or short hand of that park then fetch jsut that park and pass that to the details component - usee the useParams in the url? put the shorthand for the park in the url, make details say loading until fetch returns with park details and it is displayed - look at rancid for example
 
   //need a state to store what the activity selected in the form - this state change will automatically trigger a function to filter through all the parks and pass those filtered parks to the the card component to display
+
 
   const allParksView = (parks) => {
     return (
