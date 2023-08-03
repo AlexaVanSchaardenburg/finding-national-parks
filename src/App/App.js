@@ -10,6 +10,7 @@ import Card from "../Card/Card";
 const App = () => {
 
   const [allParks, setAllParks] = useState(null)
+  const [currentActivity, setCurrentActivity] = useState(null)
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
@@ -31,7 +32,7 @@ const App = () => {
       <>
         {allParks 
         ? <>
-          <Form />
+          <Form setCurrentActivity={setCurrentActivity}/>
           <div className='cards'>
             {parks.map(park => {
               return <Card park={park} key={park.id} />
