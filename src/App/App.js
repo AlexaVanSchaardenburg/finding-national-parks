@@ -30,18 +30,19 @@ const App = () => {
   useEffect(() => {
     if(allParks){
       setFilteredParks(filterParksByActivity(currentActivity, allParks))
-    }
+    } 
   }, [currentActivity])
 
   const filterParksByActivity = (activity, parks) => {
-    return parks.filter(park => {
-      const parkActivities = park.activities.map(activity => activity.name)
-      return parkActivities.includes(activity)
-    })
+    if (activity !== 'select'){
+      return parks.filter(park => {
+        const parkActivities = park.activities.map(activity => activity.name)
+        return parkActivities.includes(activity)
+      })
+    } else {
+      return parks
+    }
   }
-
-  //need a state to store what the activity selected in the form - this state change will automatically trigger a function to filter through all the parks and pass those filtered parks to the the card component to display
-
 
   const homeView = (parks, type) => {
     return (
