@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import Home from "../Home/Home";
+// import Home from "../Home/Home";
 import Details from "../Details/Details";
 import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
@@ -15,14 +15,22 @@ const App = () => {
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json())
+      //add .then here to check for keys with undefined and change undefined data to a string that says unavailable
+      // .then((res) => {
+
+      // })
       .then((res) => {
-        setAllParks(res)
+        setAllParks(res.data)
       })
       // .catch((error) => {
       //   console.error('Error fetching data:', error);
       //   setAllParks(null); 
       // });
   }, [])
+
+  // useEffect(() => {
+  //   setAllParks(mockData.data)
+  // }, [])
 
   //pass all the parks to the cards - where it will map over and use the card component to display them
     //card component will need to be able to iterate over the activities of each park 
@@ -54,7 +62,7 @@ const App = () => {
       <Nav />
       <Routes>
         {allParks && (
-          <Route path='/' element={<div>{allParksView(allParks.data)}</div>} />
+          <Route path='/' element={<div>{allParksView(allParks)}</div>} />
         )}
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
       </Routes>
