@@ -12,13 +12,6 @@ const App = () => {
 
   const [allParks, setAllParks] = useState(null)
 
-  // useEffect(() => {
-  //   console.log('mockData:', mockData)
-  //   setAllParks(mockData)
-  // }, [])
-
-  // console.log(allParks)
-
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json())
@@ -39,32 +32,6 @@ const App = () => {
 
   //need a state to store what the activity selected in the form - this state change will automatically trigger a function to filter through all the parks and pass those filtered parks to the the card component to display
 
-  // const allParksView = (parks) => {
-  //   return (
-  //     <>
-  //       <Form />
-  //       <div className='cards'>
-  //         {parks.map(park => {
-  //           return <Card park={park}/>
-  //         })}
-  //       </div>
-  //     </>
-  //   )
-  // }
-
-  // const allParksView = (parks) => {
-  //   return (
-  //     <>
-  //       <Form />
-  //       <div className='cards'>
-  //         {parks.map(park => {
-  //           return <Card park={park} key={park.id} />
-  //         })}
-  //       </div>
-  //     </>
-  //   )
-  // }
-
   const allParksView = (parks) => {
     return (
       <>
@@ -77,16 +44,6 @@ const App = () => {
       </>
     )
   };
-
-  // return (
-  //   <>
-  //     <Nav />
-  //     <Routes>
-  //       <Route path='/' element={<div>{allParksView(allParks.data)}</div>} />
-  //       <Route path='/:parkCode' element={<Details />} />
-  //     </Routes>
-  //   </>
-  // );
 
   return (
     <>
