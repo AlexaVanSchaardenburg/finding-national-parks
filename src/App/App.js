@@ -35,12 +35,16 @@ const App = () => {
   const allParksView = (parks) => {
     return (
       <>
-        <Form />
-        <div className='cards'>
-          {parks.map(park => {
-            return <Card park={park} key={park.id} />
-          })}
-        </div>
+        {allParks 
+        ? <>
+          <Form />
+          <div className='cards'>
+            {parks.map(park => {
+              return <Card park={park} key={park.id} />
+            })}
+          </div>
+        </>
+        : <p>loading...</p>}
       </>
     )
   };

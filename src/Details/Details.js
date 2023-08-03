@@ -4,23 +4,23 @@ import { useState, useEffect } from 'react'
 
 const Details = ({ allParks }) => {
 
-  const [park, setPark] = useState(null)
+  // const [park, setPark] = useState(null)
 
   const parkCode = useParams().parkCode
 
-  // const park = allParks.data.find(park => park.parkCode === parkCode)
+  const park = allParks.data.find(park => park.parkCode === parkCode)
 
-  useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&limit=1&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
-      .then((res) => res.json()) 
-      .then((res) => {
-        setPark(res.data[0])
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setPark(null); 
-      });
-  }, [park])
+  // useEffect(() => {
+  //   fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&limit=1&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
+  //     .then((res) => res.json()) 
+  //     .then((res) => {
+  //       setPark(res.data[0])
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data:', error);
+  //       setPark(null); 
+  //     });
+  // }, [park])
 
   return (
     <>
