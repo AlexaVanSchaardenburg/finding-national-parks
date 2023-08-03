@@ -10,7 +10,10 @@ import Card from "../Card/Card";
 const App = () => {
 
   const [allParks, setAllParks] = useState(null)
-  const [currentActivity, setCurrentActivity] = useState(null)
+  const [currentActivity, setCurrentActivity] = useState('select')
+  const [filteredParks, setFilteredParks] = useState(null)
+
+  // console.log(currentActivity)
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
@@ -24,13 +27,26 @@ const App = () => {
       // });
   }, [])
 
+  useEffect(() => {
+    if(allParks){
+      setFilteredParks(filterParksByActivity(currentActivity, allParks))
+    }
+  }, [currentActivity])
+
+  const filterParksByActivity = (activity, parks) => {
+    return parks.filter(park => {
+      const parkActivities = park.activities.map(activity => activity.name)
+      return parkActivities.includes(activity)
+    })
+  }
+
   //need a state to store what the activity selected in the form - this state change will automatically trigger a function to filter through all the parks and pass those filtered parks to the the card component to display
 
 
-  const allParksView = (parks) => {
+  const homeView = (parks, type) => {
     return (
       <>
-        {allParks 
+        {parks 
         ? <>
           <Form setCurrentActivity={setCurrentActivity}/>
           <div className='cards'>
@@ -49,7 +65,7 @@ const App = () => {
       <Nav />
       <Routes>
         {allParks && (
-          <Route path='/' element={<div>{allParksView(allParks)}</div>} />
+          <Route path='/' element={<div>{filteredParks ? homeView(filteredParks, 'filtered') : homeView(allParks, 'ALL')}</div>} />
         )}
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
       </Routes>
