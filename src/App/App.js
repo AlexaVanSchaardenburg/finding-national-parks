@@ -12,25 +12,27 @@ const App = () => {
 
   const [allParks, setAllParks] = useState(null)
 
-  useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
-      .then((res) => res.json())
-      //add .then here to check for keys with undefined and change undefined data to a string that says unavailable
-      // .then((res) => {
+  // useEffect(() => {
+  //   fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
+  //     .then((res) => res.json())
+  //     //add .then here to check for keys with undefined and change undefined data to a string that says unavailable
+  //     // .then((res) => {
 
-      // })
-      .then((res) => {
-        setAllParks(res.data)
-      })
-      // .catch((error) => {
-      //   console.error('Error fetching data:', error);
-      //   setAllParks(null); 
-      // });
+  //     // })
+  //     .then((res) => {
+  //       setAllParks(res.data)
+  //     })
+  //     // .catch((error) => {
+  //     //   console.error('Error fetching data:', error);
+  //     //   setAllParks(null); 
+  //     // });
+  // }, [])
+
+  useEffect(() => {
+    setAllParks(mockData.data)
   }, [])
 
-  // useEffect(() => {
-  //   setAllParks(mockData.data)
-  // }, [])
+  console.log(allParks)
 
   //pass all the parks to the cards - where it will map over and use the card component to display them
     //card component will need to be able to iterate over the activities of each park 

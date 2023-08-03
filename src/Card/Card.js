@@ -20,6 +20,13 @@ const Card = ({ park }) => {
       {park.activities[0]
         ? <NavLink to={`/${park.parkCode}`} className='card'>
         {park.images[0] ? <img src={park.images[0].url} className='img' alt='park image' /> : <p>no image here</p>}
+        {/* add on error to handle bad image paths
+        <img onError={imageOnError} src={park.images?.[0]?.url} className='img' alt='park image' /> 
+
+const imageOnError = (event) => {
+    event.currentTarget.src = <path to your broken image>;
+};
+*/}
         {/* <img src={park.images?.[0]?.url} className='img' alt='park image' /> */}
         <div className='name-and-activities'>
           <h2>{park.fullName}</h2>
