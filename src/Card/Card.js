@@ -1,17 +1,37 @@
 import './Card.css';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react'
 
 const Card = ({ park }) => {
 
+  const [hasError, setHasError] = useState(false)
+
+  const activityShortList = (activities) => {
+    if (activities.length < 1){
+      return <p>click here to see more about this park!</p>
+    } else if (activities.length < 2) {
+      return <p>{`${park.activities[0].name} | see more about this park...`}</p>
+    } else if (activities.length < 3) {
+      return <p>{`${park.activities[0].name} | ${park.activities[1].name} | see more about this park...`}</p>
+    }else {
+      return <p className='activities'>{`${park.activities[0].name} | ${park.activities[1].name} | ${park.activities[2].name} | see more...`}</p> 
+    }
+  }
+
+  const handleImageError = () => {
+    setHasError(true)
+  }
+
   return (
-    <div className='card'>
-      <div className='img-box'>
-        <img src={park["images"][0]["url"]} className='img' alt='park image'/>
-      </div>
-      <div className='name-and-activities'>
-        <h2>{park.fullName}</h2>
-        <p className='activities'>{`${park["activities"][0]["name"]} | ${park["activities"][1]["name"]} | see more...`}</p>
-      </div>
-    </div>
+    <>
+      <NavLink to={`/${park.parkCode}`} className='card'>
+        {park.images[0] ? <img  src={hasError ? '../materials/home_image.jpg' :park.images[0].url} className='img' alt='park image' onError={handleImageError}/> : <img src='../materials/home_image.jpg' alt='park image'/>}
+        <div className='name-and-activities'>
+          <h2>{park.fullName}</h2>
+          {activityShortList(park.activities)}
+        </div>
+      </NavLink>
+    </>
   );
 }
 

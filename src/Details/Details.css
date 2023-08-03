@@ -18,6 +18,16 @@
   margin: 3em 0;
 }
 
+.title-home{
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-button{
+  font-size: 1em;
+  height: 1em;
+}
+
 .park-summary{
   text-align: left;
   padding: 0;
