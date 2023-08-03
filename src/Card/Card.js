@@ -1,7 +1,10 @@
 import './Card.css';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react'
 
 const Card = ({ park }) => {
+
+  const [hasError, setHasError] = useState(false)
 
   const activityShortList = (activities) => {
     if (activities.length < 1){
@@ -15,27 +18,19 @@ const Card = ({ park }) => {
     }
   }
 
+  const handleImageError = () => {
+    setHasError(true)
+  }
+
   return (
     <>
-      {park.activities[0]
-        ? <NavLink to={`/${park.parkCode}`} className='card'>
-        {park.images[0] ? <img src={park.images[0].url} className='img' alt='park image' /> : <p>no image here</p>}
-        {/* add on error to handle bad image paths
-        <img onError={imageOnError} src={park.images?.[0]?.url} className='img' alt='park image' /> 
-
-const imageOnError = (event) => {
-    event.currentTarget.src = <path to your broken image>;
-};
-*/}
-        {/* <img src={park.images?.[0]?.url} className='img' alt='park image' /> */}
+      <NavLink to={`/${park.parkCode}`} className='card'>
+        {park.images[0] ? <img  src={hasError ? '../materials/home_image.jpg' :park.images[0].url} className='img' alt='park image' onError={handleImageError}/> : <img src='../materials/home_image.jpg' alt='park image'/>}
         <div className='name-and-activities'>
           <h2>{park.fullName}</h2>
-          {/* <p className='activities'>{`${park.activities?.[0]?.name} | ${park.activities?.[1]?.name} | see more...`}</p> */}
-          {/* <p>{`${activityShortList(park.activities)} | see more ...`}</p> */}
           {activityShortList(park.activities)}
         </div>
       </NavLink>
-      : <></>}
     </>
   );
 }

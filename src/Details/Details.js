@@ -2,7 +2,7 @@ import './Details.css';
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
-const Details = ({ allParks }) => {
+const Details = () => {
 
   const parkCode = useParams().parkCode
 
