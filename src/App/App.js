@@ -18,7 +18,6 @@ const App = () => {
       .then((res) => {
         setAllParks(res)
       })
-      .then(() => console.log(allParks))
       // .catch((error) => {
       //   console.error('Error fetching data:', error);
       //   setAllParks(null); 
@@ -53,7 +52,7 @@ const App = () => {
         {allParks && (
           <Route path='/' element={<div>{allParksView(allParks.data)}</div>} />
         )}
-        <Route path='/:parkCode' element={<Details />} />
+        <Route path='/:parkCode' element={<Details allParks={allParks} />} />
       </Routes>
     </>
   );

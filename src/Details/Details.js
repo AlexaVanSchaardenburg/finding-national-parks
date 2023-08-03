@@ -2,18 +2,17 @@ import './Details.css';
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
-const Details = () => {
+const Details = ({ allParks }) => {
 
   const [park, setPark] = useState(null)
 
   const parkCode = useParams().parkCode
 
+  // const park = allParks.data.find(park => park.parkCode === parkCode)
+
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&limit=1&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json()) 
-      // .then((res) => {
-      //   console.log(res.data[0])
-      // })
       .then((res) => {
         setPark(res.data[0])
       })
