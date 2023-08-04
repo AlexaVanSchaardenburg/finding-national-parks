@@ -70,7 +70,7 @@ const Details = ({ setError, error }) => {
             <h2 className='details-header'>park images</h2>
             {park["images"].map(image => {
               return (
-                <img key={image.url} src={image.url} alt={image.title} className={image.caption} />
+                <img key={image.url} src={image.url} alt={image.title} className='park-images' />
               )
             })}
           </div>
