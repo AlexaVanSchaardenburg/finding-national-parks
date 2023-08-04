@@ -51,7 +51,11 @@ const App = () => {
           <p>loading ...</p>
         </>
       )
-    }  else if (parks.length < 1) {
+    } else if (!parks) {
+      return (
+        <Error />
+      )
+    } else if (parks.length < 1) {
       return (
         <>
           <Form setCurrentActivity={setCurrentActivity} />
@@ -69,21 +73,21 @@ const App = () => {
           </div>
         </>
       );
-    } else {
-      return (
-        <Error error={error} />
-      )
     }
   };
 
   return (
     <>
       <Nav />
+      {error ? (
+        <Error error={error}/>
+      ) :
       <Routes>
         <Route path='/' element={<div>{filteredParks ? showCards(filteredParks) : showCards(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
         <Route path='*' element={<Error />} />
       </Routes>
+      }
     </>
   );
 }

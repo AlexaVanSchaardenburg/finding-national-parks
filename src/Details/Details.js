@@ -51,7 +51,7 @@ const Details = ({ setError, error }) => {
                 <h3>activities</h3>
                 {park.activities.map(activity => {
                   return (
-                    <p key={activity.id} className='listed-activity'>{`${activity.name}`}</p>
+                    <p key={activity.id} className='listed-detail'>{`${activity.name}`}</p>
                   )
                 })}
               </div>
@@ -59,18 +59,18 @@ const Details = ({ setError, error }) => {
                 <a href={park["url"]}>click here to go to park site!</a>
                 <div className='info-box'>
                   <h3>designation</h3>
-                  <p>{`${park.designation}`}</p>
+                  <p className='listed-detail'>{`${park.designation}`}</p>
                 </div>
                 <div className='info-box' id='location'>
                   <h3>location</h3>
-                  <p>{`${park.directionsInfo}`}</p>
+                  <p  className='listed-detail'>{`${park.directionsInfo}`}</p>
                 </div>
               </div>
             </div>
             <h2 className='details-header'>park images</h2>
             {park["images"].map(image => {
               return (
-                <img key={image.url} src={image.url} alt={image.title} className={image.caption} />
+                <img key={image.url} src={image.url} alt={image.title} className='park-images' />
               )
             })}
           </div>
