@@ -1,4 +1,5 @@
 import './Form.css';
+import PropTypes from 'prop-types';
 
 const Form = ({ setCurrentActivity }) => {
 
@@ -41,3 +42,7 @@ const Form = ({ setCurrentActivity }) => {
 }
 
 export default Form;
+
+Form.propTypes = {
+  setCurrentActivity: PropTypes.func.isRequired
+}
