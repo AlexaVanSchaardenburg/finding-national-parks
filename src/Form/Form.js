@@ -1,39 +1,48 @@
 import './Form.css';
+import PropTypes from 'prop-types';
 
-const Form = () => {
+const Form = ({ setCurrentActivity }) => {
+
+  const handleChange = (event) => {
+    setCurrentActivity(event.target.value)
+  };
 
   return (
     <div className='form'>
       <div className='form-box'>
-      <h1>find the perfect park for your next adventure</h1>
-      <select className='dropdown'>
-        <option value="select">select an activity</option>
-        <option value="arts-and-culture">arts and culture</option>
-        <option value="astronomy">astronomy</option>
-        <option value="stargazing">stargazing</option>
-        <option value="biking">biking</option>
-        <option value="road-biking">road biking</option>
-        <option value="camping">camping</option>
-        <option value="backcountry-camping">backcountry camping</option>
-        <option value="car-or-front-country-camping">car or front country camping</option>
-        <option value="horse-camping">horse camping</option>
-        <option value="canyoneering">canyoneering</option>
-        <option value="climbing">climbing</option>
-        <option value="rock-climbing">rock climbing</option>
-        <option value="guided-tours">guided tours</option>
-        <option value="hiking">hiking</option>
-        <option value="front-country-hiking">front-country hiking</option>
-        <option value="junior-ranger-program">junior ranger program</option>
-        <option value="wildlife-watching">wildlife watching</option>
-        <option value="birdwatching">birdwatching</option>
-        <option value="park-film">park film</option>
-        <option value="museum-exhibits">museum exhibits</option>
-        <option value="shopping">shopping</option>
-        <option value="bookstore-and-park-store">bookstore and park store</option>
-      </select>
+        <h1>find the perfect park for your next adventure</h1>
+        <select className='dropdown' onChange={handleChange}>
+          <option value="select">select an activity</option>
+          <option value="Arts and Culture">arts and culture</option>
+          <option value="Astronomy">astronomy</option>
+          <option value="Stargazing">stargazing</option>
+          <option value="Biking">biking</option>
+          <option value="Road Biking">road biking</option>
+          <option value="Camping">camping</option>
+          <option value="Backcountry Camping">backcountry camping</option>
+          <option value="Car or Front Country Camping">car or front country camping</option>
+          <option value="Horse Camping">horse camping</option>
+          <option value="Canyoneering">canyoneering</option>
+          <option value="Climbing">climbing</option>
+          <option value="Rock Climbing">rock climbing</option>
+          <option value="Guided Tours">guided tours</option>
+          <option value="Hiking">hiking</option>
+          <option value="Front Country Hiking">front-country hiking</option>
+          <option value="Junior Ranger Program">junior ranger program</option>
+          <option value="Wildlife Watching">wildlife watching</option>
+          <option value="Birdwatching">birdwatching</option>
+          <option value="Park Film">park film</option>
+          <option value="Museum Exhibits">museum exhibits</option>
+          <option value="Shopping">shopping</option>
+          <option value="Bookstore and Park Store">bookstore and park store</option>
+        </select>
       </div>
     </div>
   );
-}
+};
 
 export default Form;
+
+Form.propTypes = {
+  setCurrentActivity: PropTypes.func.isRequired
+};
