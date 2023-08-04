@@ -12,7 +12,7 @@ const App = () => {
   const [allParks, setAllParks] = useState(null);
   const [currentActivity, setCurrentActivity] = useState('select');
   const [filteredParks, setFilteredParks] = useState(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const App = () => {
         setIsLoading(false)
       })
       .catch((error) => {
-        setError(true)
+        setError(error)
       });
   }, []);
 
@@ -79,11 +79,15 @@ const App = () => {
   return (
     <>
       <Nav />
+      {error ? (
+        <Error />
+      ) :
       <Routes>
         <Route path='/' element={<div>{filteredParks ? showCards(filteredParks) : showCards(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
         <Route path='*' element={<Error />} />
       </Routes>
+      }
     </>
   );
 }
