@@ -31,7 +31,6 @@ describe('User can view all parks', () => {
     cy.wait('@getParks').its('response.statusCode').should('eq', 500);
 
     //assert that an error message is displayed
-    cy.get('.error').should('be.visible')
-
+    cy.get('.error').should('be.visible').children().last().should('have.text', 'something went wrong on our end, please try again later');
   })
 })
