@@ -1,5 +1,5 @@
 describe('User can filter parks by activity', () => {
-  it.skip('should display parks that have rockclimbing', () => {
+  it('should display parks that have rockclimbing', () => {
 
     const parksFixture = 'parks.json';
 
@@ -18,7 +18,7 @@ describe('User can filter parks by activity', () => {
     cy.get('.cards').children().first().find('img').should('exist')
 
   })
-  it.skip('should display a message when the user selects an activity that is not available at any park', () => {
+  it('should display a message when the user selects an activity that is not available at any park', () => {
 
     const parksFixture = 'parks.json';
     cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', {

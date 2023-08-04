@@ -1,5 +1,5 @@
 describe('User can view all parks', () => {
-  it.skip('should dipslay all parks', () => {
+  it('should dipslay all parks', () => {
     const parksFixture = 'parks.json';
     const parkFixture = 'park.json';
 
@@ -28,7 +28,7 @@ describe('User can view all parks', () => {
     cy.get('.location-designation-link > :nth-child(3)').should('have.text', 'locationArches National Park is located in southeast Utah, five miles north of Moab on US 191. From Moab, Utah, drive five miles north on Main Street/US 191. Turn right at the stoplight. From Interstate 70, take exit 182 (Crescent Junction), then drive south 28 miles on US 191. Turn left at the stoplight.')
     cy.get('[src="https://www.nps.gov/common/uploads/structured_data/473F5463-F0D2-261D-CEF5FCB39363590B.jpg"]').should('be.visible')
   });
-  it.skip('should allow the user to return to the page with all parks', () => {
+  it('should allow the user to return to the page with all parks', () => {
     const parksFixture = 'parks.json';
     const parkFixture = 'park.json';
 
