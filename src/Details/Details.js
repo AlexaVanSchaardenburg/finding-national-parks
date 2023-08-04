@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 
-const Details = () => {
+const Details = ({ setView, setError, view, error}) => {
 
   const parkCode = useParams().parkCode
 
@@ -17,8 +17,7 @@ const Details = () => {
         setPark(res.data[0])
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
-        setPark(null); 
+        setError(true)
       });
   }, [])
 
@@ -71,7 +70,7 @@ const Details = () => {
             )
           })}
       </div>
-      : <Error />}
+      : <Error error={error}/>}
     </> 
   );
 }
