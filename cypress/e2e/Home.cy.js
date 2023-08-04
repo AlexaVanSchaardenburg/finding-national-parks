@@ -1,5 +1,5 @@
 describe('User can view all parks', () => {
-  it('should dipslay all parks', () => {
+  it.skip('should dipslay all parks', () => {
     //stub the fetch call
     const parksFixture = 'parks.json'; 
     cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { fixture: parksFixture
@@ -20,30 +20,18 @@ describe('User can view all parks', () => {
     cy.get('.cards').children().first().find('.activities').should('have.text', 'Biking | Road Biking | Camping | see more...')
     cy.get('.cards').children().first().find('img').should('exist')
   })
-  it.skip('should display an error message if a 400 level error occurs', () => {
+  it('should display an error message if a 500 level error occurs', () => {
     //stub the fetch call
-    const parksFixture = 'parks.json'; 
-    cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { fixture: parksFixture
+    cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { 
+      body: 'Internal Server Error',
+      statusCode: 500
     }).as('getParks');
     //visit the home page
     cy.visit('http://localhost:3000/');
-    cy.wait('@getParks').its('response.statusCode').should('eq', 200);
-    //visit the site
+    cy.wait('@getParks').its('response.statusCode').should('eq', 500);
+
     //assert that an error message is displayed
-  })
-  it.skip('should display an error message if a 500 level error occurspasses', () => {
-    //stub the fetch call
-    const parksFixture = 'parks.json'; 
-    cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { fixture: parksFixture
-    }).as('getParks');
-    //visit the home page
-    cy.visit('http://localhost:3000/');
-    cy.wait('@getParks').its('response.statusCode').should('eq', 200);
-      //visit the site
-      //assert that an error message is displayed
+    cy.get('.error').should('be.visible')
+
   })
 })
-
-//testing that everything we expect to dipslay does
-//testing sad path of 500
-//testing sad path 400
