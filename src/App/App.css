@@ -14,6 +14,13 @@
   justify-content: center;
 }
 
+p{
+  color: #465333;
+  font-family: 'League Spartan', sans-serif;
+  padding: 3em;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

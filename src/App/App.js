@@ -13,12 +13,14 @@ const App = () => {
   const [currentActivity, setCurrentActivity] = useState('select');
   const [filteredParks, setFilteredParks] = useState(null);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json())
       .then((res) => {
         setAllParks(res.data)
+        setIsLoading(false)
       })
       .catch((error) => {
         setError(true)
@@ -42,36 +44,21 @@ const App = () => {
     };
   };
 
-  // const showCards = (parks) => {
-  //   return (
-  //     <>
-  //       {parks
-  //         ? <>
-  //           <Form setCurrentActivity={setCurrentActivity} />
-  //           <div className='cards'>
-  //             {parks.map(park => {
-  //               return <Card park={park} key={park.id} />
-  //             })}
-  //           </div>
-  //         </>
-  //         : <Error error={error} />}
-  //     </>
-  //   );
-  // };
-
   const showCards = (parks) => {
-    if (!parks) {
+    if (isLoading) {
       return (
-        <Error error={error} />
+        <>
+          <p>loading ...</p>
+        </>
       )
-    } else if (parks.length < 1) {
+    }  else if (parks.length < 1) {
       return (
         <>
           <Form setCurrentActivity={setCurrentActivity} />
-          <p>there are no parks matching this activity, try looking for a differnt activity</p>
+          <p>there are no parks matching this activity, try looking for a different activity</p>
         </>
       )
-    } else {
+    } else if (parks) {
       return (
         <>
           <Form setCurrentActivity={setCurrentActivity} />
@@ -82,13 +69,16 @@ const App = () => {
           </div>
         </>
       );
+    } else {
+      return (
+        <Error error={error} />
+      )
     }
   };
 
   return (
     <>
       <Nav />
-      {error && <Navigate to='/error' />}
       <Routes>
         <Route path='/' element={<div>{filteredParks ? showCards(filteredParks) : showCards(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
