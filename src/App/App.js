@@ -92,7 +92,6 @@ const App = () => {
       <Routes>
         <Route path='/' element={<div>{filteredParks ? showCards(filteredParks) : showCards(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
-        <Route path='/error' />
         <Route path='*' element={<Error />} />
       </Routes>
     </>
