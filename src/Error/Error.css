@@ -1,0 +1,9 @@
+.go-home{
+  width: 40%
+}
+
+.error{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

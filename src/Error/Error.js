@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 const Error = () => {
 
   return (
-      <div>
+      <div className='error'>
         <h1>uh-oh, something went wrong</h1>
-        <NavLink to='/'>🏕️ go back to home 🏕️</NavLink>
+        <NavLink to='/' className='go-home'>🏕️ go back to home 🏕️</NavLink>
       </div>
   );
 }
