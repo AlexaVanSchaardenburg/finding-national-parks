@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 
 const Details = ({ setError, error }) => {
 
-  const parkCode = useParams().parkCode
+  const parkCode = useParams().parkCode;
 
-  const [park, setPark] = useState(null)
+  const [park, setPark] = useState(null);
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&limit=1&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
@@ -80,4 +80,4 @@ export default Details;
 Details.propTypes = {
   setError: PropTypes.func,
   error: PropTypes.bool
-}
+};

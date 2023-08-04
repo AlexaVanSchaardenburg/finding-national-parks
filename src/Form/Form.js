@@ -5,7 +5,7 @@ const Form = ({ setCurrentActivity }) => {
 
   const handleChange = (event) => {
     setCurrentActivity(event.target.value)
-  }
+  };
 
   return (
     <div className='form'>
@@ -39,10 +39,10 @@ const Form = ({ setCurrentActivity }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Form;
 
 Form.propTypes = {
   setCurrentActivity: PropTypes.func.isRequired
-}
+};

@@ -21,4 +21,4 @@ export default Error;
 
 Error.propTypes = {
   error: PropTypes.bool
-}
+};

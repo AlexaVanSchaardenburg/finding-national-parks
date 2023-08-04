@@ -9,9 +9,9 @@ import Error from "../Error/Error";
 
 const App = () => {
 
-  const [allParks, setAllParks] = useState(null)
-  const [currentActivity, setCurrentActivity] = useState('select')
-  const [filteredParks, setFilteredParks] = useState(null)
+  const [allParks, setAllParks] = useState(null);
+  const [currentActivity, setCurrentActivity] = useState('select');
+  const [filteredParks, setFilteredParks] = useState(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -23,13 +23,13 @@ const App = () => {
       .catch((error) => {
         setError(true)
       });
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (allParks) {
       setFilteredParks(filterParksByActivity(currentActivity, allParks))
     }
-  }, [currentActivity])
+  }, [currentActivity]);
 
   const filterParksByActivity = (activity, parks) => {
     if (activity !== 'select') {
@@ -39,8 +39,8 @@ const App = () => {
       })
     } else {
       return parks
-    }
-  }
+    };
+  };
 
   const homeView = (parks) => {
     return (
@@ -56,7 +56,7 @@ const App = () => {
           </>
           : <Error error={error} />}
       </>
-    )
+    );
   };
 
   return (
