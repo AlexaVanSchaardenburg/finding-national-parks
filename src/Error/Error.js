@@ -1,9 +1,7 @@
 import './Error.css';
 import { NavLink } from 'react-router-dom';
 
-const Error = ({ error, view }) => {
-
-
+const Error = ({ error }) => {
 
   return (
       <div className='error'>

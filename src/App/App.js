@@ -1,13 +1,11 @@
 import './App.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
-// import Home from "../Home/Home";
 import Details from "../Details/Details";
 import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
 import Error from "../Error/Error";
-import Loading from "../Loading/Loading";
 
 const App = () => {
 
