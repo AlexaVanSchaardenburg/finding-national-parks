@@ -6,6 +6,7 @@ import Details from "../Details/Details";
 import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
+import Error from "../Error/Error";
 
 const App = () => {
 
@@ -69,6 +70,7 @@ const App = () => {
           <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
         )}
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
+        <Route path='*' element={<Error />}/>
       </Routes>
     </>
   );
