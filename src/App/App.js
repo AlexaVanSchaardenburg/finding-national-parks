@@ -16,7 +16,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
+    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX/sfnvwinfv`)
       .then((res) => res.json())
       .then((res) => {
         setAllParks(res.data)
@@ -51,7 +51,11 @@ const App = () => {
           <p>loading ...</p>
         </>
       )
-    }  else if (parks.length < 1) {
+    } else if (!parks) {
+      return (
+        <Error />
+      )
+    } else if (parks.length < 1) {
       return (
         <>
           <Form setCurrentActivity={setCurrentActivity} />
@@ -69,10 +73,6 @@ const App = () => {
           </div>
         </>
       );
-    } else {
-      return (
-        <Error error={error} />
-      )
     }
   };
 
