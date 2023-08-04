@@ -1,5 +1,5 @@
 describe('User can view all parks', () => {
-  it.skip('should dipslay all parks', () => {
+  it('should dipslay all parks', () => {
     //stub the fetch call
     const parksFixture = 'parks.json'; 
     cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { fixture: parksFixture
@@ -8,6 +8,8 @@ describe('User can view all parks', () => {
     //visit the home page
     cy.visit('http://localhost:3000/');
     cy.wait('@getParks').its('response.statusCode').should('eq', 200);
+
+    cy.url().should('eq', 'http://localhost:3000/')
 
     //check that the form is visible to the user
     cy.get('.form-box').should('be.visible')
