@@ -44,7 +44,7 @@ const App = () => {
     }
   }
 
-  const homeView = (parks, type) => {
+  const homeView = (parks) => {
     return (
       <>
         {parks 
@@ -66,7 +66,7 @@ const App = () => {
       <Nav />
       <Routes>
         {allParks && (
-          <Route path='/' element={<div>{filteredParks ? homeView(filteredParks, 'filtered') : homeView(allParks, 'ALL')}</div>} />
+          <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
         )}
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
       </Routes>
