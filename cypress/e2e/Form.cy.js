@@ -1,6 +1,11 @@
+import { parks } from '../fixtures/parks'
+
 describe('User can filter parks by activity', () => {
   it('should display parks that have rockclimbing', () => {
-    cy.visit('https://example.cypress.io')
+    //stub the fetch call
+    cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', {
+      body: parks
+    });
     //visit the home page
     //find the form and select rock climbing as an activity
     //assert that the home page has the right number of cards
