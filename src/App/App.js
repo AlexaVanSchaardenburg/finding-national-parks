@@ -17,7 +17,7 @@ const App = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX/afbvwBIV`)
+    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json())
       .then((res) => {
         setAllParks(res.data)
