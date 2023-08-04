@@ -2,8 +2,9 @@ import './Details.css';
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Error from "../Error/Error";
+import PropTypes from 'prop-types';
 
-const Details = ({ setView, setError, view, error}) => {
+const Details = ({ setError, error}) => {
 
   const parkCode = useParams().parkCode
 
@@ -75,3 +76,8 @@ const Details = ({ setView, setError, view, error}) => {
 }
 
 export default Details;
+
+Details.propTypes = {
+  setError: PropTypes.func,
+  error: PropTypes.bool
+}
