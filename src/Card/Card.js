@@ -1,6 +1,7 @@
 import './Card.css';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react'
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Card = ({ park }) => {
 
@@ -36,3 +37,7 @@ const Card = ({ park }) => {
 }
 
 export default Card;
+
+Card.propTypes = {
+  park: PropTypes.object.isRequired
+};
