@@ -1,4 +1,4 @@
-const parks = {
+{
   "total": "471",
   "limit": "10",
   "start": "20",
@@ -3335,6 +3335,4 @@ const parks = {
       "designation": "National Park"
     }
   ]
-};
-
-export default parks;
+}
