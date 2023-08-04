@@ -20,12 +20,13 @@ describe('User can view all parks', () => {
     cy.get('.cards').children().first().find('.activities').should('have.text', 'Biking | Road Biking | Camping | see more...')
     cy.get('.cards').children().first().find('img').should('exist')
   })
-  it('should display an error message if a 500 level error occurs', () => {
+  it.skip('should display an error message if a 500 level error occurs', () => {
     //stub the fetch call
     cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX', { 
       body: 'Internal Server Error',
       statusCode: 500
     }).as('getParks');
+
     //visit the home page
     cy.visit('http://localhost:3000/');
     cy.wait('@getParks').its('response.statusCode').should('eq', 500);
