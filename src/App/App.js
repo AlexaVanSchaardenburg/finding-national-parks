@@ -42,21 +42,47 @@ const App = () => {
     };
   };
 
-  const homeView = (parks) => {
-    return (
-      <>
-        {parks
-          ? <>
-            <Form setCurrentActivity={setCurrentActivity} />
-            <div className='cards'>
-              {parks.map(park => {
-                return <Card park={park} key={park.id} />
-              })}
-            </div>
-          </>
-          : <Error error={error} />}
-      </>
-    );
+  // const showCards = (parks) => {
+  //   return (
+  //     <>
+  //       {parks
+  //         ? <>
+  //           <Form setCurrentActivity={setCurrentActivity} />
+  //           <div className='cards'>
+  //             {parks.map(park => {
+  //               return <Card park={park} key={park.id} />
+  //             })}
+  //           </div>
+  //         </>
+  //         : <Error error={error} />}
+  //     </>
+  //   );
+  // };
+
+  const showCards = (parks) => {
+    if (!parks) {
+      return (
+        <Error error={error} />
+      )
+    } else if (parks.length < 1) {
+      return (
+        <>
+          <Form setCurrentActivity={setCurrentActivity} />
+          <p>there are no parks matching this activity, try looking for a differnt activity</p>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <Form setCurrentActivity={setCurrentActivity} />
+          <div className='cards'>
+            {parks.map(park => {
+              return <Card park={park} key={park.id} />
+            })}
+          </div>
+        </>
+      );
+    }
   };
 
   return (
@@ -64,7 +90,7 @@ const App = () => {
       <Nav />
       {error && <Navigate to='/error' />}
       <Routes>
-        <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
+        <Route path='/' element={<div>{filteredParks ? showCards(filteredParks) : showCards(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
         <Route path='/error' />
         <Route path='*' element={<Error />} />
