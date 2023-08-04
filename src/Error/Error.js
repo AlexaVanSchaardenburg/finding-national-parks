@@ -1,5 +1,6 @@
 import './Error.css';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Error = ({ error }) => {
 
@@ -18,3 +19,7 @@ const Error = ({ error }) => {
 }
 
 export default Error;
+
+Error.propTypes = {
+  error: PropTypes.bool
+}
