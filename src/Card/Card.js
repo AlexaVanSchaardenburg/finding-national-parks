@@ -39,5 +39,19 @@ const Card = ({ park }) => {
 export default Card;
 
 Card.propTypes = {
-  park: PropTypes.object.isRequired
+  park: PropTypes.shape({
+    parkCode: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        caption: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    fullName: PropTypes.string.isRequired,
+    activities: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 };
