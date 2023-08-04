@@ -8,11 +8,11 @@ const Card = ({ park }) => {
 
   const activityShortList = (activities) => {
     if (activities.length < 1){
-      return <p>click here to see more about this park!</p>
+      return <p className='activities'>click here to see more about this park!</p>
     } else if (activities.length < 2) {
-      return <p>{`${park.activities[0].name} | see more about this park...`}</p>
+      return <p className='activities'>{`${park.activities[0].name} | see more about this park...`}</p>
     } else if (activities.length < 3) {
-      return <p>{`${park.activities[0].name} | ${park.activities[1].name} | see more about this park...`}</p>
+      return <p className='activities'>{`${park.activities[0].name} | ${park.activities[1].name} | see more about this park...`}</p>
     }else {
       return <p className='activities'>{`${park.activities[0].name} | ${park.activities[1].name} | ${park.activities[2].name} | see more...`}</p> 
     }
