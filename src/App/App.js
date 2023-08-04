@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 // import Home from "../Home/Home";
 import Details from "../Details/Details";
@@ -14,20 +14,19 @@ const App = () => {
   const [allParks, setAllParks] = useState(null)
   const [currentActivity, setCurrentActivity] = useState('select')
   const [filteredParks, setFilteredParks] = useState(null)
-  const [errorOnLoad, setErrorOnLoad] = useState(null)
-
-  // console.log(currentActivity)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
+    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX/adadada`)
       .then((res) => res.json())
       .then((res) => {
         setAllParks(res.data)
       })
-      // .catch((error) => {
-      //   console.error('Error fetching data:', error);
-      //   setAllParks(null); 
-      // });
+      .catch((error) => {
+        console.log(error)
+        setError(true)
+        // setAllParks(null); 
+      });
   }, [])
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const App = () => {
             })}
           </div>
         </>
-        : <Loading />}
+        : <Error error={error} />}
       </>
     )
   };
@@ -67,11 +66,11 @@ const App = () => {
   return (
     <>
       <Nav />
+      {error && <Navigate to='/error' />}
       <Routes>
-        {allParks && (
-          <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
-        )}
+        <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
+        <Route path='/error' />
         <Route path='*' element={<Error />}/>
       </Routes>
     </>
