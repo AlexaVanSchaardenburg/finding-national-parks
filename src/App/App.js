@@ -14,18 +14,18 @@ const App = () => {
   const [allParks, setAllParks] = useState(null)
   const [currentActivity, setCurrentActivity] = useState('select')
   const [filteredParks, setFilteredParks] = useState(null)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
+  const [view, setView] = useState('home')
 
   useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX/adadada`)
+    fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&limit=471&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
       .then((res) => res.json())
       .then((res) => {
         setAllParks(res.data)
+        setView('home')
       })
       .catch((error) => {
-        console.log(error)
-        setError(true)
-        // setAllParks(null); 
+        setError(true) 
       });
   }, [])
 
@@ -58,7 +58,7 @@ const App = () => {
             })}
           </div>
         </>
-        : <Error error={error} />}
+        : <Error error={error} view={view}/>}
       </>
     )
   };
@@ -71,7 +71,7 @@ const App = () => {
         <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
         <Route path='/:parkCode' element={<Details allParks={allParks} />} />
         <Route path='/error' />
-        <Route path='*' element={<Error />}/>
+        <Route path='*' element={<Error view={view}/>}/>
       </Routes>
     </>
   );
