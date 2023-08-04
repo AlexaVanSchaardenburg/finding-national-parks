@@ -1,12 +1,12 @@
 import './Error.css';
 import { NavLink } from 'react-router-dom'
 
-const Error = () => {
+const Error = ({ errorOnLoad }) => {
 
   return (
       <div className='error'>
         <h1>uh-oh, something went wrong</h1>
-        <NavLink to='/' className='go-home'>🏕️ go back to home 🏕️</NavLink>
+       {errorOnLoad ? <p>Please try again later</p> : <NavLink to='/' className='go-home'>🏕️ go back to home 🏕️</NavLink>}
       </div>
   );
 }

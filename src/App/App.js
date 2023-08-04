@@ -7,12 +7,14 @@ import Nav from "../Nav/Nav";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
 import Error from "../Error/Error";
+import Loading from "../Loading/Loading";
 
 const App = () => {
 
   const [allParks, setAllParks] = useState(null)
   const [currentActivity, setCurrentActivity] = useState('select')
   const [filteredParks, setFilteredParks] = useState(null)
+  const [errorOnLoad, setErrorOnLoad] = useState(null)
 
   // console.log(currentActivity)
 
@@ -57,7 +59,7 @@ const App = () => {
             })}
           </div>
         </>
-        : <p>loading...</p>}
+        : <Loading />}
       </>
     )
   };

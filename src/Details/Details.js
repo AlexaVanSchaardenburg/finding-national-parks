@@ -1,6 +1,7 @@
 import './Details.css';
 import { NavLink, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import Loading from "../Loading/Loading";
 
 const Details = () => {
 
@@ -69,7 +70,7 @@ const Details = () => {
             )
           })}
       </div>
-      : <p>loading ...</p>}
+      : <Loading />}
     </> 
   );
 }
