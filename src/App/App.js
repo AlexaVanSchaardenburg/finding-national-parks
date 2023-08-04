@@ -21,18 +21,18 @@ const App = () => {
         setAllParks(res.data)
       })
       .catch((error) => {
-        setError(true) 
+        setError(true)
       });
   }, [])
 
   useEffect(() => {
-    if(allParks){
+    if (allParks) {
       setFilteredParks(filterParksByActivity(currentActivity, allParks))
-    } 
+    }
   }, [currentActivity])
 
   const filterParksByActivity = (activity, parks) => {
-    if (activity !== 'select'){
+    if (activity !== 'select') {
       return parks.filter(park => {
         const parkActivities = park.activities.map(activity => activity.name)
         return parkActivities.includes(activity)
@@ -45,16 +45,16 @@ const App = () => {
   const homeView = (parks) => {
     return (
       <>
-        {parks 
-        ? <>
-          <Form setCurrentActivity={setCurrentActivity}/>
-          <div className='cards'>
-            {parks.map(park => {
-              return <Card park={park} key={park.id} />
-            })}
-          </div>
-        </>
-        : <Error error={error} />}
+        {parks
+          ? <>
+            <Form setCurrentActivity={setCurrentActivity} />
+            <div className='cards'>
+              {parks.map(park => {
+                return <Card park={park} key={park.id} />
+              })}
+            </div>
+          </>
+          : <Error error={error} />}
       </>
     )
   };
@@ -65,9 +65,9 @@ const App = () => {
       {error && <Navigate to='/error' />}
       <Routes>
         <Route path='/' element={<div>{filteredParks ? homeView(filteredParks) : homeView(allParks)}</div>} />
-        <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error}/>} />
+        <Route path='/:parkCode' element={<Details allParks={allParks} setError={setError} error={error} />} />
         <Route path='/error' />
-        <Route path='*' element={<Error />}/>
+        <Route path='*' element={<Error />} />
       </Routes>
     </>
   );

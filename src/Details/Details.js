@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Error from "../Error/Error";
 import PropTypes from 'prop-types';
 
-const Details = ({ setError, error}) => {
+const Details = ({ setError, error }) => {
 
   const parkCode = useParams().parkCode
 
@@ -12,7 +12,7 @@ const Details = ({ setError, error}) => {
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&limit=1&start=0&api_key=l6jn2TRgOT3bXFR8Fk7iAF7OP6Bkf7lslJE9TMMX`)
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then((res) => {
         setPark(res.data[0])
       })
@@ -24,24 +24,24 @@ const Details = ({ setError, error}) => {
   return (
     <>
       {park
-      ? <div className='details'>
-      <div 
-        className='background-img' 
-        style={{
-          backgroundImage: `url(${park.images[0].url})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
-        }} >
-        <div className="park-summary-box">
-          <div className='title-home'>
-          <h1 className='park-summary'>{`${park.fullName}`}</h1>
-          <NavLink className='home-button' to='/'>view other parks</NavLink>
+        ? <div className='details'>
+          <div
+            className='background-img'
+            style={{
+              backgroundImage: `url(${park.images[0].url})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover'
+            }} >
+            <div className="park-summary-box">
+              <div className='title-home'>
+                <h1 className='park-summary'>{`${park.fullName}`}</h1>
+                <NavLink className='home-button' to='/'>view other parks</NavLink>
+              </div>
+              <p className='park-summary'>{`${park.states}`}</p>
+              <p className='park-summary'>{`${park.description}`}</p>
+            </div>
           </div>
-          <p className='park-summary'>{`${park.states}`}</p>
-          <p className='park-summary'>{`${park.description}`}</p>
-        </div>
-      </div>
-        <h2 className='details-header'>at a glance</h2>
+          <h2 className='details-header'>at a glance</h2>
           <div className='at-a-glance'>
             <div className='info-box' id='activities'>
               <h3>activities</h3>
@@ -63,15 +63,15 @@ const Details = ({ setError, error}) => {
               </div>
             </div>
           </div>
-        <h2 className='details-header'>park images</h2>
+          <h2 className='details-header'>park images</h2>
           {park["images"].map(image => {
             return (
-              <img key={image.url} src={image.url} alt={image.title} className={image.caption}/>
+              <img key={image.url} src={image.url} alt={image.title} className={image.caption} />
             )
           })}
-      </div>
-      : <Error error={error}/>}
-    </> 
+        </div>
+        : <Error error={error} />}
+    </>
   );
 }
 
