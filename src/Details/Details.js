@@ -41,8 +41,8 @@ const Details = ({ setError, error }) => {
                   <h1 className='park-summary'>{`${park.fullName}`}</h1>
                   <NavLink className='home-button' to='/'>view other parks</NavLink>
                 </div>
-                <p className='park-summary'>{`${park.states}`}</p>
-                <p className='park-summary'>{`${park.description}`}</p>
+                <p className='park-summary summary'>{`${park.states}`}</p>
+                <p className='park-summary summary'>{`${park.description}`}</p>
               </div>
             </div>
             <h2 className='details-header'>at a glance</h2>

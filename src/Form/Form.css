@@ -33,3 +33,14 @@ h1 {
   color: #465333;
   cursor: pointer;
 }
+
+@media screen and (max-width: 720px){
+  .form-box{
+    padding: 0.5em;
+    margin: 1em;
+  }
+
+  .dropdown{
+    font-size: 1.2em;
+  }
+}

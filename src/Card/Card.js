@@ -27,7 +27,7 @@ const Card = ({ park }) => {
     <NavLink to={`/${park.parkCode}`} className='card'>
       {park.images[0] ? <img src={hasError ? '../materials/home_image.jpg' : park.images[0].url} className='img' alt={park.images[0].caption} onError={handleImageError} /> : <img src='../materials/home_image.jpg' alt='park image' />}
       <div className='name-and-activities'>
-        <h2>{park.fullName}</h2>
+        <h2 className='park-name'>{park.fullName}</h2>
         {activityShortList(park.activities)}
       </div>
     </NavLink>
