@@ -3,7 +3,7 @@
 ### A web application for easily finding national parks, monuments, and lands to do the activities you love most 
 
 ## Project Summary
-The goal of this project was to create an application using an external api in order to solve a problem for a niche group of users. I love being in the outdoors, and some of my favorites trips have been those to National Parks and Museums. I created this application to allow users to easily sort parks by the activities they love while providing basic park information to kick start their trip planning. The UI is intentionally minimalistic and included limited details to encourage users to peruse their adventures without getting overwhelmed. There is a link to each parks home page available to the user if they want easy access to more information.
+The goal of this project was to create an application using an external api in order to solve a problem for a niche group of users. I love being outdoors, and some of my favorite trips have been those to National Parks and Museums. I created this application to allow users to easily sort parks by the activities they love while providing basic park information to kick start their trip planning. The UI is intentionally minimalistic and includes limited details to encourage users to pursue their adventures without getting overwhelmed. There is a link to each park's home page available to the user if they want easy access to more information.
 
 This project was also a way for me to develop my skills in React, React Router and Cypress.
 
